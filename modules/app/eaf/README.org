@@ -1,0 +1,6 @@
+#+title:    :app eaf
+#+subtitle: manateelazycat's emacs APP framework
+#+created:  February 17, 2023
+
+* Description :unfold:
+This module adds eaf for better APP performance.

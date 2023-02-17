@@ -1,0 +1,7 @@
+#+title:    :tools lsp-bridge
+#+subtitle: manateelazycat's LSP client
+#+created:  February, 2023
+
+* Description :unfold:
+This module provides another LSP client for Doom, powered by lsp-bridge.
+
