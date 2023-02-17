@@ -20,6 +20,10 @@
 (use-package! lsp-bridge
               :hook
               (python-mode . lsp-bridge-mode)
+              (emacs-lisp-mode . lsp-bridge-mode)
+              (lisp-interaction-mode . lsp-bridge-mode)
+              (c-mode . lsp-bridge-mode)
+              (c++-mode . lsp-bridge-mode)
               ;; :init
               ;;(setq acm-enable-citre t)
               ;; :config
