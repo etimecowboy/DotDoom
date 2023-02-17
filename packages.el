@@ -48,3 +48,23 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
+
+;; NOTE: Magit dependencies break
+;;
+;; It seems that some magit dependencies break with Emacs 28, as the function
+;; defvar-keymap is only added in Emacs 29. The solution is to pin an older
+;; version of the packages, as Doom currently does not support Emacs 29. You can
+;; do this with the following code:
+;;
+;; REF:
+;;   - https://emacs.stackexchange.com/questions/75827/doom-emacs-error-running-hook-global-git-commit-mode-because-void-variable
+(when (< emacs-major-version 29)
+
+  (package! transient
+    :recipe (:host github :repo "magit/transient")
+    :pin "c2bdf7e12c530eb85476d3aef317eb2941ab9440")
+
+  (package! with-editor
+    :recipe (:host github :repo "magit/with-editor")
+    :pin "bbc60f68ac190f02da8a100b6fb67cf1c27c53ab")
+)
