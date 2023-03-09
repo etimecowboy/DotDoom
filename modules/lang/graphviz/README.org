@@ -1,0 +1,8 @@
+#+title:    :lang graphviz
+#+subtitle: graphviz support
+#+created:  February 17, 2023
+
+* Description :unfold:
+This module adds support for the open-source graph declaration system graphviz to Doom.
+
+

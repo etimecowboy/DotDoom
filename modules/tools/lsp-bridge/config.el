@@ -19,6 +19,7 @@
 
 (use-package! lsp-bridge
               :hook
+              (sh-mode . lsp-bridge-mode)
               (python-mode . lsp-bridge-mode)
               (emacs-lisp-mode . lsp-bridge-mode)
               (lisp-interaction-mode . lsp-bridge-mode)
@@ -26,7 +27,10 @@
               (c++-mode . lsp-bridge-mode)
               ;; :init
               ;;(setq acm-enable-citre t)
-              ;; :config
+              :config
+              (setq lsp-bridge-c-lsp-server "ccls"
+                    lsp-bridge-python-lsp-server "pyright"
+                    lsp-bridge-tex-lsp-server "texlab")
               ;; (global-lsp-bridge-mode)
               )
 

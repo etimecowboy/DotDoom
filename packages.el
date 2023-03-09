@@ -49,7 +49,7 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-;; NOTE: Magit dependencies break
+;; NOTE: `magit' dependencies break
 ;;
 ;; It seems that some magit dependencies break with Emacs 28, as the function
 ;; defvar-keymap is only added in Emacs 29. The solution is to pin an older
@@ -62,9 +62,21 @@
 
   (package! transient
     :recipe (:host github :repo "magit/transient")
-    :pin "c2bdf7e12c530eb85476d3aef317eb2941ab9440")
+    )
+    ;; :pin "c2bdf7e12c530eb85476d3aef317eb2941ab9440")
 
   (package! with-editor
     :recipe (:host github :repo "magit/with-editor")
-    :pin "bbc60f68ac190f02da8a100b6fb67cf1c27c53ab")
+    ;; :pin "bbc60f68ac190f02da8a100b6fb67cf1c27c53ab")
+    )
 )
+
+;; NOTE: `docker' module dependencies
+;;
+;; tramp-container (included with Emacs 29+) replaces docker-tramp (when (>=
+;; emacs-major-version 29). However, some packages has not migrated to support
+;; docker-container yet. It is better to install it.
+;;
+(package! docker-tramp
+  ;; :pin "930d7b46c180d8a13240a028c1b40af84f2a3219")
+  )

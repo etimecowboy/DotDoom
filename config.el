@@ -3,6 +3,12 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
+;; Maximize or fullscreen Emacs on startup
+;; REF: https://discourse.doomemacs.org/t/maximize-or-fullscreen-emacs-on-startup/135
+;;(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+;;(add-hook 'window-setup-hook #'toggle-frame-maximized)
+;;(add-hook 'window-setup-hook #'toggle-frame-fullscreen)
+(toggle-frame-fullscreen)
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
@@ -77,6 +83,19 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;; From dotspacemacs/user-init()
+;; set time locale to standard format, avoid chinese time stamps in org mode.
+;; another solution is (setenv "LC_ALL" "C")
+(setq-default system-time-locale "C")
+
+;; From dotspacemacs/user-config()
+;; Automatically update timestamp of files
+(setq time-stamp-start "Time-stamp:"
+      time-stamp-end "\n"
+      time-stamp-format " <%Y-%02m-%02d %3a %02H:%02M by %u on %s>"
+      time-stamp-time-zone t)
+(add-hook 'write-file-hooks #'time-stamp)
 
 ;; treemacs
 (map! "M-0" #'treemacs-select-window)
