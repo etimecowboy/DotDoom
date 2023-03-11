@@ -25,15 +25,20 @@
               (lisp-interaction-mode . lsp-bridge-mode)
               (c-mode . lsp-bridge-mode)
               (c++-mode . lsp-bridge-mode)
-              ;; :init
-              ;;(setq acm-enable-citre t)
+              (rust-mode . lsp-bridge-mode)
               :config
+              (setq lsp-bridge-dir (file-name-directory (locate-library "lsp-bridge")))
+              (add-to-list 'load-path (concat lsp-bridge-dir "core/"))
+              (add-to-list 'load-path (concat lsp-bridge-dir "acm/"))
               (setq lsp-bridge-c-lsp-server "ccls"
                     lsp-bridge-python-lsp-server "pyright"
-                    lsp-bridge-tex-lsp-server "texlab")
+                    lsp-bridge-tex-lsp-server "texlab"
+                    lsp-bridge-use-ds-pinyin-in-org-mode t)
+              (setq acm-enable-quick-access t
+                    acm-quick-access-modifier 'control)
               ;; (global-lsp-bridge-mode)
               )
 
 (unless (display-graphic-p)
-  (after! acm
+  (after! lsp-bridge
           (use-package! acm-terminal)))
