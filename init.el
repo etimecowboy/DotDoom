@@ -112,6 +112,7 @@
        tree-sitter         ; syntax and parsing, sitting in a tree...
        upload              ; map local to remote projects via ssh/ftp
        lsp-bridge          ; NOTE: my private module
+       popweb              ; NOTE: my private module
 
        :os
        ;;(:if IS-MAC macos); improve compatibility with macOS
