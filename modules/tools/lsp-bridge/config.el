@@ -42,3 +42,13 @@
 (unless (display-graphic-p)
   (after! lsp-bridge
           (use-package! acm-terminal)))
+
+(after! company
+  ;; disable company in more modes ... migrating to acm ...
+  (setq company-global-modes
+        '(not erc-mode circe-mode message-mode help-mode
+          gud-mode vterm-mode ;; NOTE: modes above are defined in company module config.el
+          emacs-lisp-mode lisp-interaction-mode
+          python-mode c-mode c++-mode rust-mode sh-mode
+          ))
+  )
