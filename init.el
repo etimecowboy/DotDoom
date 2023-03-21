@@ -17,9 +17,9 @@
 (defvar native-comp-deferred-compilation-deny-list nil)
 (setq warning-minimum-level :error)
 
-(doom! :input
+(doom! ;;:input            ; NOTE: replaced by :intl chinese
        ;;bidi              ; (tfel ot) thgir etirw uoy gnipleh
-       ;;chinese
+       ;;(chinese +rime +childframe)
        ;;japanese
        ;;layout            ; auie,ctsrnm is the superior home row
 
@@ -197,7 +197,26 @@
        ;;twitter           ; twitter client https://twitter.com/vnought
        eaf                 ; NOTE: my private module
 
+       :intl
+       chinese             ; NOTE: my private module
+
        :config
        ;;literate
        (default +bindings +smartparens)
        )
+
+;; (use-package-hook! org
+;;   :pre-init
+;;   (setq org-directory "~/org/"
+;;         ;; org-modules '(ol-bbdb ol-bibtex org-crypt ol-docview
+;;         ;;               ol-doi ol-eww ol-gnus org-habit ol-info
+;;         ;;               ol-irc ol-mhe org-mouse org-protocol
+;;         ;;               ol-rmail ol-w3m ol-elisp-symbol ol-git-link
+;;         ;;               ol-man org-toc)
+;;         )
+
+;;   (add-to-list 'org-babel-load-languages '(sqlite . t))
+;;   (add-to-list 'org-babel-load-languages '(latex . t))
+;;   (add-to-list 'org-babel-load-languages '(ditaa . t))
+;;   (add-to-list 'org-babel-load-languages '(dot . t))
+;;   )
