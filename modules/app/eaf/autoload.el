@@ -20,6 +20,13 @@
          browse-url-generic-program "google-chrome")
   (message "The default web browser is set to google-chrome."))
 
+;;;###autoload
+(defun eaf-ipython-command ()
+  "Override function eaf-ipython-command to use ipython3"
+  (if (eaf--called-from-wsl-on-windows-p)
+      "ipython.exe"
+    "ipython3"))
+
 ;;
 ;; Commands
 
