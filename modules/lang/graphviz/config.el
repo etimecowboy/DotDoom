@@ -24,3 +24,23 @@
   ;;                 (delete '("dot" . fundamental) org-src-lang-modes))))
   ;; TODO:
   ;; May be I can use (after! ob-dot) just like plantuml module config.el
+  ;;
+
+(when (modulep! +lang org)
+  (use-package-hook! org
+    :pre-init
+    (add-to-list 'org-babel-load-languages '(dot . t))
+    )
+  )
+
+(after! ob
+  (doom-require 'graphviz-dot-mode)
+  (doom-require 'ob-dot))
+
+(after! org-src
+  ;; replace fundamental mode by graphiz one
+  (setq org-src-lang-modes
+        (append '(("dot" . graphviz-dot))
+                (delete '("dot" . fundamental) org-src-lang-modes))
+        )
+  )
